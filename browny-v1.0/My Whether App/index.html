@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wheather Forecast</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="card">
+        <div class="search">
+            <input placeholder="Enter your City Name" spellcheck="false">
+            <button><img src="images\search.png"></button>
+        </div>
+        <div class="error">
+            <p>
+                Invalid City Name 
+            </p>
+        </div>
+        <div class="Wheather" id="Wheather">
+            <img src="images\rain.png" class="whetherIcon">
+             <h1 class="temp">22 ℃</h1>
+             <h2 class="city">New York</h2>
+             <div class="details">
+                <div class="part1">
+                    <img src="images\humidity.png">
+                    <div>
+                        <p class="humidity">50% 
+                            <br>
+                            <p>Humidity</p>
+                             
+                        </p>
+                    </div>
+                </div>
+                <div class="part2">
+                    <img src="images\wind.png">
+                    <div>
+                        <p  class="wind">15 Km/h
+                            <br>
+                            <p>Wind Speed</p>
+                            
+                        </p>
+                    </div>
+                </div> 
+    
+            </div>
+        </div>
+        
+    </div>
+   
+</body>
+<script>
+const apikey ="4828a3bea299a3b4ab79109237a46ef3";
+const apiUrl ="https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+const searchBox = document.querySelector(".search input");
+const searchBtn = document.querySelector(".search button");
+const whethericon= document.querySelector(".whetherIcon");
+
+async function checkWhether(City){
+        const response =await fetch(apiUrl + City + `&appid=${apikey}`);
+        
+        if(response.status == 404){
+            document.querySelector(".error").style.display='block';
+            document.querySelector(".Wheather").style.display='none';
+        }
+        else{
+            var data= await response.json();
+
+console.log(data);
+document.querySelector(".temp").innerHTML= Math.round(data.main.temp) + "℃";
+document.querySelector(".city").innerHTML=data.name;
+document.querySelector(".humidity").innerHTML=data.main.humidity +"%";
+document.querySelector(".wind").innerHTML=data.wind.speed +"Km/h";
+    
+if(data.weather?.[0].main == "Clouds"){
+        whethericon.src="images/clouds.png";
+}
+else if(data.weather?.[0].main == 'Drizzle'){
+        whethericon.src="images/drizzle.png";
+}
+else if(data.weather?.[0].main == 'Clear'){
+        whethericon.src="images/clear.png";
+}
+else if(data.weather?.[0].main == 'Rain'){
+        whethericon.src="images/rain.png";
+}
+else if(data.weather?.[0].main == 'Mist'){
+        whethericon.src="images/mist.png";
+}
+
+else if(data.weather?.[0].main == 'Smoke'){
+        whethericon.src="images/smoke.png";
+}
+else if(data.weather?.[0].main == 'Wind'){
+        whethericon.src="images/wind1.png";
+}
+else if(data.weather?.[0].main == 'Haze'){
+        whethericon.src="images/haze.png";
+}
+else if(data.weather?.[0].main == 'Humidity'){
+        whethericon.src="images/humidity.png";
+}
+else if(data.weather?.[0].main == 'Hail'){
+        whethericon.src="images/hail.png";
+}
+    document.querySelector(".Wheather").style.display='block';
+    document.querySelector(".error").style.display='none';
+
+}
+        }
+      
+
+
+searchBtn.addEventListener("click", ()=>{
+    checkWhether(searchBox.value);   
+})  
+
+//DOM Practices -
+
+
+// console.dir(document);
+// console.dir(document.URL);
+// console.dir(document.title);
+// document.title = "Wheather Forecast";
+// console.dir(document.body);
+// console.dir(document.domain);
+// console.dir(document.doctype);
+// console.log(document.doctype);
+// console.log(document.body);
+// console.log(document.all);
+// console.log(document.all[5]);
+// console.log(document.getElementById('Wheather'));
+// var shreya =document.getElementById('Wheather');
+// console.log(shreya);
+// shreya.textContent='Nobert';
+   
+
+// changing styles by js -
+
+// const shreya =document.getElementById('Wheather');
+// shreya.style.border= 'solid 5px red';
+
+// getElementbyclassname -
+
+// const shreya =document.getElementsByClassName('error');
+// console.log(shreya[0]);
+
+// queryselector -
+
+   
+
+
+
+// getElementbytagname -
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</html>

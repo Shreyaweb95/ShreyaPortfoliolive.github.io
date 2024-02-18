@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    box-sizing: border-box;
+}
+body{
+    background: #222;
+}
+.card{
+    background-color: aqua;
+    /* height: 530px; */
+    width: 450px;
+    max-width: 500px;
+    border-radius: 25px;
+    margin-left: 50px;
+    margin-top: 50px;
+    color: aliceblue;
+    text-align: center;
+    padding: 20px 25px;
+    background: linear-gradient(45deg,rgb(45, 207, 172),rgb(69, 88, 187))
+}
+.search{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 40px;
+}
+.search input{
+    color: rgb(91, 93, 95);
+    height: 50px;
+    width: 300px;
+    border: none;
+    border-radius: 35px;
+    cursor: pointer;
+    margin-left: 10px;
+    text-align: center;
+   margin-bottom: 35px;
+}
+
+.search input:placeholder-shown{
+    text-align: center;
+    color: rgb(91, 93, 95);
+}
+.search button{
+    border-radius: 80px;
+    border: none;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+}
+.search img{
+    background-color: rgb(237, 240, 243);
+    height: 25px;
+    width: 25px;
+    margin-top: 5px;
+}
+.Wheather h1,h2{
+    padding-top: 20px;
+    font-size: 40px;
+    font-family: 'poppins';
+    
+}
+
+.Wheather img{
+    height: 160px;
+    width: 160px;
+}
+.details{
+    display: flex;
+    margin-top: 20px;
+    margin-left: 20px;
+    justify-content: space-around;
+  
+}
+.part1,.part2{
+    display: flex;
+    line-height: 1.5rem;
+   
+}
+.part1 img{
+    height: 40px;
+    width: 40px; 
+}
+.part2 img{
+    height: 40px;
+    width: 40px;
+}
+.part1 p,.part2 p{
+    font-size: 12px;
+    font-weight: 300;
+    margin-left:10px ;
+    margin-top:-5px;
+    text-align: start;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+ 
+.Wheather{
+    display: none;
+}
+.error{
+    text-align: center;
+    margin-left: 10px;
+    font-size: 14px;
+    margin-top: 10px;
+    display: none;
+}
